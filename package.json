@@ -26,6 +26,7 @@
     "eslint-plugin-jsx-a11y": "6.2.1",
     "eslint-plugin-react": "7.13.0",
     "eslint-plugin-react-native": "3.7.0",
+    "husky": "2.3.0",
     "jest": "24.8.0",
     "metro-react-native-babel-preset": "0.54.1",
     "react-test-renderer": "16.8.3"
@@ -44,5 +45,10 @@
     "transformIgnorePatterns": [
       "node_modules/(?!(jest-)?react-native|react-navigation)"
     ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "npm run eslint && npm test"
+    }
   }
 }

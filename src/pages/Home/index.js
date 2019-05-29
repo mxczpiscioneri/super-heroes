@@ -6,6 +6,10 @@ import { generateUrlImage } from '../../utils'
 import { getCharacters } from '../../services/api'
 
 class Home extends Component {
+  static navigationOptions = {
+    title: 'Characters',
+  }
+
   constructor(props) {
     super(props)
 

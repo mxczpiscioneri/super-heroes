@@ -1,4 +1,5 @@
 import Styled from 'styled-components/native'
+import Colors from '../../statics/colors'
 
 export const Container = Styled.View`
   flex: 1;
@@ -8,7 +9,7 @@ export const Box = Styled.TouchableOpacity`
   flexBasis: 0;
   flexGrow: 1;
   borderRadius: 6;
-  background: #1a3555;
+  background: ${Colors.PRIMARY};
   opacity: 0.8;
   padding: 8px;
   margin: 8px;
@@ -21,7 +22,7 @@ export const Image = Styled.Image`
 `
 
 export const Legend = Styled.Text`
-  color: #fff;
+  color: ${Colors.WHITE};
   fontSize: 20px;
   paddingHorizontal: 8px;
   marginTop: 16px;

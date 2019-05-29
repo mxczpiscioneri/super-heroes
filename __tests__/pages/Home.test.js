@@ -1,13 +1,13 @@
 
 import React from 'react'
 import renderer from 'react-test-renderer'
-import Hone from '../../src/pages/Hone'
+import Home from '../../src/pages/Home'
 
 const navigation = { navigate: jest.fn() }
 
-it('renders Hone', () => {
+it('renders Home', () => {
   const rendered = renderer.create(
-    <Hone navigation={navigation} />
+    <Home navigation={navigation} />
   ).toJSON()
   expect(rendered).toMatchSnapshot()
 })

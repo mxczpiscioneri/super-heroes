@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Character snapshot 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "flexBasis": 0,
+        "flexGrow": 1,
+        "flexShrink": 1,
+      },
+    ]
+  }
+>
+  <View
+    accessible={true}
+    isTVSelectable={true}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "backgroundColor": "#1a3555",
+        "borderRadius": 6,
+        "flexBasis": 0,
+        "flexGrow": 1,
+        "marginBottom": 16,
+        "marginLeft": 8,
+        "marginRight": 8,
+        "marginTop": 8,
+        "opacity": 0.8,
+        "paddingBottom": 8,
+        "paddingLeft": 8,
+        "paddingRight": 8,
+        "paddingTop": 8,
+      }
+    }
+  >
+    <Image
+      source={
+        Object {
+          "uri": "http://i.annihil.us/u/prod/marvel/i/mg/b/70/4c0035adc7d3a/standard_fantastic.jpg",
+        }
+      }
+      style={
+        Array [
+          Object {
+            "borderRadius": 6,
+            "height": 200,
+          },
+        ]
+      }
+    />
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#fff",
+            "fontSize": 20,
+            "marginBottom": 8,
+            "marginTop": 16,
+            "paddingHorizontal": 8,
+          },
+        ]
+      }
+    >
+      Ajaxis
+    </Text>
+  </View>
+</View>
+`;

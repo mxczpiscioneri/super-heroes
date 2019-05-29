@@ -46,6 +46,7 @@ Api.interceptors.response.use(response => response.data, error => {
 /**
  * Method to get the characters
  * @param {String} options - Options for filters
+ * @returns {Promise} List characters
  */
 export const getCharacters = (options = '') => {
   return (

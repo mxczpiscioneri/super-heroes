@@ -9,7 +9,7 @@ import {
 
 export const Links = props => (
   <Container>
-    {props.character.urls.map(item => (
+    {props.urls.map(item => (
       <Link
         key={item.type}
         activeOpacity={0.8}
@@ -22,5 +22,5 @@ export const Links = props => (
 )
 
 Links.propTypes = {
-  character: PropTypes.object.isRequired,
+  urls: PropTypes.array.isRequired,
 }

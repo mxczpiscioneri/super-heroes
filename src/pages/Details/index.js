@@ -17,7 +17,6 @@ import {
   Description,
 } from './styles'
 
-
 class Details extends Component {
   static navigationOptions = ({ navigation }) => {
     const { state } = navigation
@@ -100,7 +99,7 @@ class Details extends Component {
 
             <Info>
               <Description>{character.description}</Description>
-              <Links character={character} />
+              <Links urls={character.urls || []} />
             </Info>
 
             <MoreInfo title='Comics' data={comics} />

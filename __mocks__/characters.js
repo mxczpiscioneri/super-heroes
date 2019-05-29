@@ -47,3 +47,18 @@ export const characterMock = {
     }
   ]
 }
+
+export const linksMock = [
+  {
+    type: 'detail',
+    url: 'http://marvel.com/comics/characters/1011334/3-d_man?utm_campaign=apiRef&utm_source=5da970115b50a3e9868cb1299a8e2bab'
+  },
+  {
+    type: 'wiki',
+    url: 'http://marvel.com/universe/3-D_Man_(Chandler)?utm_campaign=apiRef&utm_source=5da970115b50a3e9868cb1299a8e2bab'
+  },
+  {
+    type: 'comiclink',
+    url: 'http://marvel.com/comics/characters/1011334/3-d_man?utm_campaign=apiRef&utm_source=5da970115b50a3e9868cb1299a8e2bab'
+  }
+]

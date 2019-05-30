@@ -57,6 +57,7 @@ buck-out/
 
 #ENV
 .env
+.env.production
 
 #Coverage
 /coverage

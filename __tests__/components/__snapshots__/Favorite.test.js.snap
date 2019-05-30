@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Favorite Favorite snapshot 1`] = `
+<View
+  accessible={true}
+  isTVSelectable={true}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "opacity": 1,
+      "paddingBottom": 12,
+      "paddingLeft": 12,
+      "paddingRight": 12,
+      "paddingTop": 12,
+    }
+  }
+>
+  <Image
+    source={
+      Object {
+        "testUri": "../../../src/statics/images/icon_favorite_border.png",
+      }
+    }
+    style={
+      Array [
+        Object {},
+      ]
+    }
+  />
+</View>
+`;

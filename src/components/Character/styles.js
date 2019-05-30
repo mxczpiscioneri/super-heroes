@@ -13,7 +13,6 @@ export const Box = Styled.TouchableOpacity`
   opacity: 0.8;
   padding: 8px;
   margin: 8px;
-  marginBottom: 16px;
 `
 
 export const Image = Styled.Image`
@@ -27,4 +26,10 @@ export const Legend = Styled.Text`
   paddingHorizontal: 8px;
   marginTop: 16px;
   marginBottom: 8px;
+`
+
+export const FavoriteBox = Styled.View`
+  position: absolute;
+  top: 16px;
+  right: 16px;  
 `

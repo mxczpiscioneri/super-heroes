@@ -98,14 +98,29 @@ class Details extends Component {
             />
 
             <Info>
-              <Description>{character.description}</Description>
-              <Links urls={character.urls || []} />
+              {character.description.trim() !== '' &&
+                <Description>{character.description}</Description>
+              }
+              {character.urls &&
+                <Links urls={character.urls} />
+              }
             </Info>
 
-            <MoreInfo title='Comics' data={comics} />
-            <MoreInfo title='Series' data={series} />
-            <MoreInfo title='Stories' data={stories} />
-            <MoreInfo title='Events' data={events} />
+            {comics.length > 0 &&
+              <MoreInfo title='Comics' data={comics} />
+            }
+
+            {series.length > 0 &&
+              <MoreInfo title='Series' data={series} />
+            }
+
+            {stories.length > 0 &&
+              <MoreInfo title='Stories' data={stories} />
+            }
+
+            {events.length > 0 &&
+              <MoreInfo title='Events' data={events} />
+            }
           </ScrollView> :
           <ActivityIndicator />
         }

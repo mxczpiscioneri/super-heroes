@@ -5,7 +5,7 @@ import { FlatList } from 'react-native'
 import { Background, Character } from '../../components'
 import { generateUrlImage } from '../../utils'
 import { getCharacters } from '../../services/api'
-import { IconSearch } from '../../statics/images'
+import { IconSearch, IconFavoriteBorder } from '../../statics/images'
 import { Icon, Image } from './styles'
 
 class Home extends Component {
@@ -14,9 +14,14 @@ class Home extends Component {
     return {
       title: 'Characters',
       headerRight: (
-        <Icon activeOpacity={0.6} onPress={() => state.params.handleSearchVisibility()}>
-          <Image source={IconSearch} />
-        </Icon>
+        <>
+          <Icon activeOpacity={0.6} onPress={() => navigation.navigate('Favorites')}>
+            <Image source={IconFavoriteBorder} />
+          </Icon>
+          <Icon activeOpacity={0.6} onPress={() => state.params.handleSearchVisibility()}>
+            <Image source={IconSearch} />
+          </Icon>
+        </>
       ),
     }
   }

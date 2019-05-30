@@ -1,4 +1,5 @@
 export * from './Background'
 export * from './Character'
+export * from './Favorite'
 export * from './Links'
 export * from './MoreInfo'

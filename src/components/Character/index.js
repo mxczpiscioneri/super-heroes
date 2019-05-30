@@ -1,11 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import FavoriteContext from '../Favorite/context'
 import {
   Container,
   Box,
   Image,
   Legend,
+  FavoriteBox,
 } from './styles'
+import { Favorite } from '..'
 
 export const Character = props => {
   const {
@@ -26,6 +29,13 @@ export const Character = props => {
           <Legend>{character.name}</Legend>
         }
       </Box>
+      <FavoriteBox>
+        <FavoriteContext.Consumer>
+          {context => (
+            <Favorite {...context} character={character} />
+          )}
+        </FavoriteContext.Consumer>
+      </FavoriteBox>
     </Container>
   )
 }

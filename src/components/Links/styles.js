@@ -8,7 +8,7 @@ export const Container = Styled.View`
 `
 
 export const Link = Styled.TouchableOpacity`
-  height: 30px;
+  height: 32px;
   background: ${Colors.SECONDARY};
   borderRadius: 6px;
   alignItems: center;

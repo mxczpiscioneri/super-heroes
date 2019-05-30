@@ -3,6 +3,8 @@ import { configure } from 'enzyme'
 
 configure({ adapter: new Adapter() })
 
+const items = {}
+
 jest.useFakeTimers()
 
 jest.mock('react-navigation', () => ({
@@ -29,4 +31,34 @@ jest.mock('js-md5', () => {
 
 jest.mock('ToastAndroid', () => ({
   show: jest.fn(),
+}))
+
+jest.mock('AsyncStorage', () => ({
+  setItem: jest.fn((item, value) => {
+    return new Promise(resolve => {
+      items[item] = value
+      resolve(value)
+    })
+  }),
+  multiSet: jest.fn((item, value) => {
+    return new Promise(resolve => {
+      items[item] = value
+      resolve(value)
+    })
+  }),
+  getItem: jest.fn(item => {
+    return new Promise(resolve => {
+      resolve(items[item])
+    })
+  }),
+  multiGet: jest.fn(item => {
+    return new Promise(resolve => {
+      resolve(items[item])
+    })
+  }),
+  removeItem: jest.fn(item => {
+    return new Promise(resolve => {
+      resolve(delete items[item])
+    })
+  }),
 }))

@@ -1,27 +1,22 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import SearchBar from 'react-native-searchbar'
-import Icon from 'react-native-vector-icons/MaterialIcons'
 import { FlatList } from 'react-native'
 import { Background, Character } from '../../components'
 import { generateUrlImage } from '../../utils'
 import { getCharacters } from '../../services/api'
-import Colors from '../../statics/colors'
+import { IconSearch } from '../../statics/images'
+import { Icon, Image } from './styles'
 
 class Home extends Component {
   static navigationOptions = ({ navigation }) => {
     const { state } = navigation
-
     return {
       title: 'Characters',
       headerRight: (
-        <Icon
-          name={'search'}
-          size={24}
-          style={{ marginRight: 24 }}
-          color={Colors.WHITE}
-          onPress={() => state.params.handleSearchVisibility()}
-        />
+        <Icon activeOpacity={0.6} onPress={() => state.params.handleSearchVisibility()}>
+          <Image source={IconSearch} />
+        </Icon>
       ),
     }
   }
@@ -89,7 +84,10 @@ class Home extends Component {
    * Method to perform search
    */
   handleSearch = search => {
-    this.setState({ characters: [] })
+    this.setState({
+      characters: [],
+      page: 0,
+    })
     this.loadCharacters(search && `&nameStartsWith=${encodeURI(search)}`)
   }
 

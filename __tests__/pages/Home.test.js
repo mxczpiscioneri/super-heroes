@@ -5,7 +5,10 @@ import { shallow } from 'enzyme'
 import Home from '../../src/pages/Home'
 import { charactesrMock } from '../../__mocks__/characters'
 
-const navigation = { navigate: jest.fn() }
+const navigation = {
+  navigate: jest.fn(),
+  setParams: jest.fn(),
+}
 
 describe('Home', () => {
   test('Home snapshot', () => {

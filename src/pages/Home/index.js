@@ -1,13 +1,29 @@
 import React, { Component } from 'react'
-import { FlatList } from 'react-native'
 import PropTypes from 'prop-types'
+import SearchBar from 'react-native-searchbar'
+import Icon from 'react-native-vector-icons/MaterialIcons'
+import { FlatList } from 'react-native'
 import { Background, Character } from '../../components'
 import { generateUrlImage } from '../../utils'
 import { getCharacters } from '../../services/api'
+import Colors from '../../statics/colors'
 
 class Home extends Component {
-  static navigationOptions = {
-    title: 'Characters',
+  static navigationOptions = ({ navigation }) => {
+    const { state } = navigation
+
+    return {
+      title: 'Characters',
+      headerRight: (
+        <Icon
+          name={'search'}
+          size={24}
+          style={{ marginRight: 24 }}
+          color={Colors.WHITE}
+          onPress={() => state.params.handleSearchVisibility()}
+        />
+      ),
+    }
   }
 
   constructor(props) {
@@ -17,11 +33,17 @@ class Home extends Component {
       characters: [],
       refreshing: false,
       page: 0,
+      hasPagination: false
     }
   }
 
   componentDidMount() {
     this.loadCharacters()
+
+    const { navigation } = this.props
+    navigation.setParams({
+      handleSearchVisibility: this.handleSearchVisibility
+    })
   }
 
   /**
@@ -38,7 +60,8 @@ class Home extends Component {
 
     this.setState({
       characters,
-      refreshing: false
+      refreshing: false,
+      hasPagination: response.total > response.count
     })
   }
 
@@ -46,11 +69,37 @@ class Home extends Component {
    * Method to load more characters
    */
   handleLoadMore() {
-    this.setState(prevState => ({
-      page: prevState.page + 1,
-    }), () => {
-      this.loadCharacters()
-    })
+    if (this.state.hasPagination) {
+      this.setState(prevState => ({
+        page: prevState.page + 1,
+      }), () => {
+        this.loadCharacters()
+      })
+    }
+  }
+
+  /**
+   * Method to show search bar
+   */
+  handleSearchVisibility = () => {
+    this.searchBar.show()
+  }
+
+  /**
+   * Method to perform search
+   */
+  handleSearch = search => {
+    this.setState({ characters: [] })
+    this.loadCharacters(search && `&nameStartsWith=${encodeURI(search)}`)
+  }
+
+  /**
+   * Method to hide search bar
+   */
+  handleHideSearch = () => {
+    this.setState({ characters: [] })
+    this.loadCharacters()
+    this.searchBar.hide()
   }
 
   render() {
@@ -58,6 +107,11 @@ class Home extends Component {
 
     return (
       <Background>
+        <SearchBar
+          ref={ref => { this.searchBar = ref }}
+          handleSearch={this.handleSearch}
+          onBack={this.handleHideSearch}
+        />
         <FlatList
           data={this.state.characters}
           keyExtractor={item => `characters${item.id}`}

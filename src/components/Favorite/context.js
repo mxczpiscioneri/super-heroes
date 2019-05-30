@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { AsyncStorage } from 'react-native'
+import {
+  AsyncStorage,
+  ToastAndroid,
+} from 'react-native'
 
 const { Consumer, Provider: ContextProvider } = React.createContext()
 
@@ -39,13 +42,8 @@ class Provider extends Component {
       favoritesIds,
     })
 
+    ToastAndroid.show(`${exists ? 'Removed from' : 'Added to'} favorites!`, ToastAndroid.SHORT)
     AsyncStorage.setItem('favorites', JSON.stringify(favorites))
-  }
-
-  getFavorites = async () => {
-    const favorites = await AsyncStorage.getItem('favorites') || '[]'
-
-    this.setState({ favorites: JSON.parse(favorites) })
   }
 
   async componentDidMount() {

@@ -8,7 +8,7 @@ import {
   Legend,
   FavoriteBox,
 } from './styles'
-import { Favorite } from '..'
+import { Favorite } from '../Favorite'
 
 export const Character = props => {
   const {
